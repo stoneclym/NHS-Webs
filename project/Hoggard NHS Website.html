@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hoggard NHS — Viking Chapter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="crest.jsx"></script>
+<script type="text/babel" src="nav.jsx"></script>
+<script type="text/babel" src="gallery.jsx"></script>
+<script type="text/babel" src="home.jsx"></script>
+<script type="text/babel" src="about.jsx"></script>
+<script type="text/babel" src="membership.jsx"></script>
+<script type="text/babel" src="volunteer.jsx"></script>
+<script type="text/babel" src="meetings.jsx"></script>
+<script type="text/babel" src="contact.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "colorTheme": "Navy & Gold",
+  "density": "Comfortable",
+  "showPillars": true,
+  "showMission": true,
+  "showQuickLinks": true,
+  "showGallery": true
+}/*EDITMODE-END*/;
+
+const THEMES = {
+  "Navy & Gold": {
+    '--navy': '#0e1a36',
+    '--navy-deep': '#0a1228',
+    '--navy-ink': '#0e1a36',
+    '--light-blue': '#5aa4df',
+    '--gold': '#a5915f',
+    '--gold-bright': '#c4a875',
+    '--paper': '#fdfbf6',
+    '--parchment': '#faf7f0',
+  },
+  "Hoggard Blues": {
+    '--navy': '#21386c',
+    '--navy-deep': '#16264a',
+    '--navy-ink': '#0e1a36',
+    '--light-blue': '#5aa4df',
+    '--gold': '#5aa4df',
+    '--gold-bright': '#7cb8e6',
+    '--paper': '#fdfdfd',
+    '--parchment': '#f3f7fb',
+  },
+  "Editorial Ink": {
+    '--navy': '#1a1a1a',
+    '--navy-deep': '#0a0a0a',
+    '--navy-ink': '#000000',
+    '--light-blue': '#5aa4df',
+    '--gold': '#a5915f',
+    '--gold-bright': '#c4a875',
+    '--paper': '#fbfaf6',
+    '--parchment': '#f1ede0',
+  },
+  "Classic Crimson": {
+    '--navy': '#7a1f1f',
+    '--navy-deep': '#5a1414',
+    '--navy-ink': '#3d0d0d',
+    '--light-blue': '#5aa4df',
+    '--gold': '#a5915f',
+    '--gold-bright': '#c4a875',
+    '--paper': '#fdfaf6',
+    '--parchment': '#f7f0e7',
+  },
+};
+
+const App = () => {
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [page, setPage] = React.useState('Home');
+
+  // Apply theme + density to :root
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const theme = THEMES[tweaks.colorTheme] || THEMES["Navy & Gold"];
+    Object.entries(theme).forEach(([k, v]) => root.style.setProperty(k, v));
+    root.style.setProperty('--density', tweaks.density === 'Compact' ? '0.85' : tweaks.density === 'Spacious' ? '1.15' : '1');
+  }, [tweaks.colorTheme, tweaks.density]);
+
+  const handleNavigate = (target) => {
+    setPage(target);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const sections = {
+    pillars: tweaks.showPillars,
+    mission: tweaks.showMission,
+    quickLinks: tweaks.showQuickLinks,
+    gallery: tweaks.showGallery,
+  };
+
+  return (
+    <>
+      <Nav active={page} onNavigate={handleNavigate} density={tweaks.density.toLowerCase()} />
+      <div data-screen-label={page} key={page}>
+        {page === 'Home' && <Home onNavigate={handleNavigate} sections={sections} />}
+        {page === 'About' && <About />}
+        {page === 'Membership' && <Membership />}
+        {page === 'Volunteer' && <Volunteer />}
+        {page === 'Meetings' && <Meetings />}
+        {page === 'Contact' && <Contact />}
+      </div>
+      <Footer onNavigate={handleNavigate} />
+
+      <TweaksPanel title="Tweaks">
+        <TweakSection title="Theme">
+          <TweakSelect
+            label="Color theme"
+            value={tweaks.colorTheme}
+            options={["Navy & Gold", "Hoggard Blues", "Editorial Ink", "Classic Crimson"]}
+            onChange={(v) => setTweak('colorTheme', v)}
+          />
+          <TweakRadio
+            label="Density"
+            value={tweaks.density}
+            options={["Compact", "Comfortable", "Spacious"]}
+            onChange={(v) => setTweak('density', v)}
+          />
+        </TweakSection>
+        <TweakSection title="Home Page Sections">
+          <TweakToggle label="Four Pillars" value={tweaks.showPillars} onChange={(v) => setTweak('showPillars', v)} />
+          <TweakToggle label="Mission Quote" value={tweaks.showMission} onChange={(v) => setTweak('showMission', v)} />
+          <TweakToggle label="Quick Links" value={tweaks.showQuickLinks} onChange={(v) => setTweak('showQuickLinks', v)} />
+          <TweakToggle label="Photo Gallery" value={tweaks.showGallery} onChange={(v) => setTweak('showGallery', v)} />
+        </TweakSection>
+      </TweaksPanel>
+    </>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

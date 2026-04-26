@@ -1,0 +1,158 @@
+/* Hoggard NHS — shared styles */
+:root {
+  --navy: #0e1a36;
+  --navy-deep: #0a1228;
+  --navy-ink: #0e1a36;
+  --light-blue: #5aa4df;
+  --gold: #a5915f;
+  --gold-bright: #c4a875;
+  --parchment: #faf7f0;
+  --paper: #fdfbf6;
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --rule: #d9d2c0;
+  --density: 1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif Pro', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--navy-ink);
+}
+
+.eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.eyebrow.on-dark { color: var(--gold-bright); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: white;
+}
+.btn-gold:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(165, 145, 95, 0.35);
+}
+
+.btn-navy {
+  background: var(--navy);
+  color: white;
+}
+.btn-navy:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+.btn-outline:hover {
+  background: var(--navy);
+  color: white;
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+.btn-outline-light:hover {
+  background: white;
+  color: var(--navy);
+  border-color: white;
+}
+
+.gold-rule {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  border: none;
+  margin: 18px 0;
+}
+
+.gold-rule.center { margin: 18px auto; }
+
+a { color: var(--navy); }
+
+/* Image placeholder — striped, monospace label */
+.placeholder {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(33, 56, 108, 0.06),
+      rgba(33, 56, 108, 0.06) 12px,
+      rgba(33, 56, 108, 0.10) 12px,
+      rgba(33, 56, 108, 0.10) 24px
+    ),
+    var(--parchment);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-align: center;
+  padding: 24px;
+}
+
+.placeholder.dark {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04) 12px,
+      rgba(255,255,255,0.08) 12px,
+      rgba(255,255,255,0.08) 24px
+    ),
+    var(--navy-deep);
+  color: var(--gold-bright);
+}
+
+/* Crest mark — abstract shield, no recreated logos */
+.crest {
+  display: inline-block;
+  position: relative;
+}
+.crest svg { display: block; }
