@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import Crest from './Crest';
 
 export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
   const tabs = ['Home', 'About', 'Membership', 'Volunteer', 'Meetings', 'Contact'];
   const padY = density === 'compact' ? 14 : 22;
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleNav = (t) => {
+    onNavigate(t);
+    setMobileOpen(false);
+  };
 
   return (
     <header style={{
@@ -15,36 +22,24 @@ export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
       <div style={{
         maxWidth: 1280,
         margin: '0 auto',
-        padding: `${padY}px 32px`,
+        padding: `${padY}px 20px`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: 32,
+        gap: 16,
       }}>
-        <a href="#" onClick={(e) => { e.preventDefault(); onNavigate('Home'); }}
-          style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none', color: 'var(--navy-ink)' }}>
-          <Crest size={42} color="var(--navy)" accent="var(--gold)" />
+        {/* Logo */}
+        <a href="#" onClick={(e) => { e.preventDefault(); handleNav('Home'); }}
+          style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'var(--navy-ink)', flexShrink: 0 }}>
+          <Crest size={38} color="var(--navy)" accent="var(--gold)" />
           <div>
-            <div style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 19,
-              fontWeight: 700,
-              lineHeight: 1,
-              letterSpacing: '-0.01em',
-            }}>Viking Chapter</div>
-            <div style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 9.5,
-              fontWeight: 600,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              marginTop: 4,
-            }}>National Honor Society</div>
+            <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>Viking Chapter</div>
+            <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginTop: 3 }}>National Honor Society</div>
           </div>
         </a>
 
-        <nav style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+        {/* Desktop nav */}
+        <nav className="nav-desktop">
           {tabs.map((t) => {
             const isActive = active === t;
             return (
@@ -57,7 +52,7 @@ export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
                   textTransform: 'uppercase',
                   textDecoration: 'none',
                   color: isActive ? 'var(--navy-ink)' : 'var(--muted)',
-                  padding: '10px 16px',
+                  padding: '10px 14px',
                   borderBottom: isActive ? '2px solid var(--gold)' : '2px solid transparent',
                   transition: 'all 0.15s ease',
                 }}
@@ -69,11 +64,71 @@ export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
           <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
             target="_blank" rel="noopener noreferrer"
             className="btn btn-gold"
-            style={{ marginLeft: 16, padding: '10px 18px', fontSize: 11 }}>
+            style={{ marginLeft: 12, padding: '10px 16px', fontSize: 11 }}>
             Sign Up to Serve
           </a>
         </nav>
+
+        {/* Hamburger button */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8 }}>
+          {mobileOpen ? (
+            /* X icon */
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <line x1="4" y1="4" x2="18" y2="18" stroke="var(--navy)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="18" y1="4" x2="4" y2="18" stroke="var(--navy)" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          ) : (
+            /* Hamburger icon */
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <line x1="3" y1="6"  x2="19" y2="6"  stroke="var(--navy)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="3" y1="11" x2="19" y2="11" stroke="var(--navy)" strokeWidth="2" strokeLinecap="round" />
+              <line x1="3" y1="16" x2="19" y2="16" stroke="var(--navy)" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {/* Mobile dropdown menu */}
+      {mobileOpen && (
+        <div style={{
+          borderTop: '1px solid var(--rule)',
+          background: 'var(--paper)',
+          padding: '8px 20px 20px',
+        }}>
+          {tabs.map((t) => {
+            const isActive = active === t;
+            return (
+              <a key={t} href="#" onClick={(e) => { e.preventDefault(); handleNav(t); }}
+                style={{
+                  display: 'block',
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  textDecoration: 'none',
+                  color: isActive ? 'var(--navy-ink)' : 'var(--muted)',
+                  padding: '14px 0',
+                  borderBottom: '1px solid var(--rule)',
+                  borderLeft: isActive ? '3px solid var(--gold)' : '3px solid transparent',
+                  paddingLeft: 12,
+                }}>
+                {t}
+              </a>
+            );
+          })}
+          <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
+            target="_blank" rel="noopener noreferrer"
+            className="btn btn-gold"
+            style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>
+            Sign Up to Serve
+          </a>
+        </div>
+      )}
     </header>
   );
 };
@@ -122,22 +177,16 @@ export const Footer = ({ onNavigate }) => (
   <footer style={{
     background: 'var(--navy-ink)',
     color: 'rgba(255,255,255,0.78)',
-    padding: '64px 32px 32px',
+    padding: '64px 20px 32px',
     marginTop: 80,
   }}>
     <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '2fr 1fr 1fr 1fr',
-        gap: 48,
-        paddingBottom: 48,
-        borderBottom: '1px solid rgba(255,255,255,0.12)',
-      }}>
+      <div className="grid-footer">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
-            <Crest size={48} color="white" accent="var(--gold-bright)" />
+            <Crest size={44} color="white" accent="var(--gold-bright)" />
             <div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: 'white', fontWeight: 700 }}>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'white', fontWeight: 700 }}>
                 Viking Chapter
               </div>
               <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold-bright)', marginTop: 4 }}>
@@ -151,12 +200,8 @@ export const Footer = ({ onNavigate }) => (
         </div>
 
         <FooterCol title="Chapter" links={[
-          { label: 'Home' },
-          { label: 'About' },
-          { label: 'Membership' },
-          { label: 'Volunteer' },
-          { label: 'Meetings' },
-          { label: 'Contact' },
+          { label: 'Home' }, { label: 'About' }, { label: 'Membership' },
+          { label: 'Volunteer' }, { label: 'Meetings' }, { label: 'Contact' },
         ]} onNavigate={onNavigate} />
 
         <FooterCol title="Resources" links={[
@@ -175,16 +220,7 @@ export const Footer = ({ onNavigate }) => (
         ]} />
       </div>
 
-      <div style={{
-        paddingTop: 28,
-        display: 'flex',
-        justifyContent: 'space-between',
-        fontFamily: "'Inter', sans-serif",
-        fontSize: 11,
-        letterSpacing: '0.14em',
-        textTransform: 'uppercase',
-        color: 'rgba(255,255,255,0.45)',
-      }}>
+      <div className="footer-bottom">
         <span>© 2026 Hoggard NHS · Viking Chapter · John T. Hoggard High School, Wilmington NC · Est. 1921</span>
         <span>Scholarship · Service · Leadership · Character</span>
       </div>

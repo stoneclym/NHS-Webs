@@ -11,46 +11,29 @@ const slideshows = [
 
 const Meetings = () => (
   <main>
-    <PageHero
-      eyebrow="Meeting Archive"
-      title="Past meeting slideshows."
-      lede="Missed a meeting? Browse the archive of past chapter meeting presentations. Each slideshow links to the original deck."
-    />
+    <PageHero eyebrow="Meeting Archive" title="Past meeting slideshows."
+      lede="Missed a meeting? Browse the archive of past chapter meeting presentations. Each slideshow links to the original deck." />
 
-    <section style={{ padding: '64px 32px' }}>
+    <section className="pad-lg">
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+        <div className="grid-meetings">
           {slideshows.map((s) => (
             <a key={s.date + s.title} href={s.href} target="_blank" rel="noopener noreferrer"
-              style={{
-                textDecoration: 'none',
-                background: 'var(--parchment)',
-                border: '1px solid var(--rule)',
-                padding: '28px 32px',
-                display: 'block',
-                transition: 'all 0.2s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--gold)';
-                e.currentTarget.style.transform = 'translateY(-3px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--rule)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
+              style={{ textDecoration: 'none', background: 'var(--parchment)', border: '1px solid var(--rule)', padding: '28px 24px', display: 'block', transition: 'all 0.2s ease' }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--rule)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
                 <div className="eyebrow">{s.date}</div>
                 <div style={{ flex: 1, height: 1, background: 'var(--rule)' }} />
                 <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: 'var(--navy)', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>Slides ↗</div>
               </div>
-              <h3 style={{ fontSize: 24, marginBottom: 10, color: 'var(--navy-ink)' }}>{s.title}</h3>
+              <h3 style={{ fontSize: 22, marginBottom: 10, color: 'var(--navy-ink)' }}>{s.title}</h3>
               <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.6 }}>{s.summary}</p>
             </a>
           ))}
         </div>
 
-        <div style={{ marginTop: 48, padding: '24px 32px', background: 'var(--parchment)', borderLeft: '3px solid var(--gold)', fontSize: 14, color: 'var(--muted)', lineHeight: 1.6, fontStyle: 'italic' }}>
+        <div style={{ marginTop: 48, padding: '24px 28px', background: 'var(--parchment)', borderLeft: '3px solid var(--gold)', fontSize: 14, color: 'var(--muted)', lineHeight: 1.6, fontStyle: 'italic' }}>
           New slideshows are added after each chapter meeting. If a deck is missing or you need a copy, email the adviser at <a href="mailto:hunter.moody@nhcs.net" style={{ color: 'var(--navy)' }}>hunter.moody@nhcs.net</a>.
         </div>
       </div>

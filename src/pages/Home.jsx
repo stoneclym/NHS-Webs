@@ -3,37 +3,18 @@ import Gallery from '../components/Gallery';
 const QuickCard = ({ kicker, title, body, cta, href, onClick }) => {
   const inner = (
     <div style={{
-      background: 'var(--parchment)',
-      border: '1px solid var(--rule)',
-      padding: '32px 28px',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      cursor: 'pointer',
-      transition: 'all 0.2s ease',
+      background: 'var(--parchment)', border: '1px solid var(--rule)',
+      padding: '32px 28px', height: '100%', display: 'flex', flexDirection: 'column',
+      cursor: 'pointer', transition: 'all 0.2s ease',
     }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'var(--gold)';
-        e.currentTarget.style.transform = 'translateY(-3px)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'var(--rule)';
-        e.currentTarget.style.transform = 'translateY(0)';
-      }}>
+      onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.transform = 'translateY(-3px)'; }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--rule)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
       <div className="eyebrow" style={{ marginBottom: 14 }}>{kicker}</div>
       <h3 style={{ fontSize: 22, marginBottom: 12, lineHeight: 1.25 }}>{title}</h3>
       <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 20, flex: 1 }}>{body}</p>
-      <div style={{
-        fontFamily: "'Inter', sans-serif",
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        color: 'var(--navy)',
-      }}>{cta} →</div>
+      <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--navy)' }}>{cta} →</div>
     </div>
   );
-
   if (href) return <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>{inner}</a>;
   return <div onClick={onClick}>{inner}</div>;
 };
@@ -41,52 +22,24 @@ const QuickCard = ({ kicker, title, body, cta, href, onClick }) => {
 const Home = ({ onNavigate, sections }) => (
   <main>
     {/* HERO */}
-    <section style={{
-      background: 'var(--navy-ink)',
-      color: 'white',
-      position: 'relative',
-      overflow: 'hidden',
-    }}>
+    <section style={{ background: 'var(--navy-ink)', color: 'white', position: 'relative', overflow: 'hidden' }}>
       <div style={{
-        position: 'absolute',
-        inset: 0,
+        position: 'absolute', inset: 0,
         backgroundImage: 'radial-gradient(circle at 20% 30%, rgba(165,145,95,0.18) 0%, transparent 45%), radial-gradient(circle at 85% 70%, rgba(90,164,223,0.12) 0%, transparent 40%)',
       }} />
-      <div style={{
-        maxWidth: 1280,
-        margin: '0 auto',
-        padding: '88px 32px 96px',
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 1fr',
-        gap: 64,
-        alignItems: 'center',
-        position: 'relative',
-      }}>
+      <div className="grid-hero" style={{ maxWidth: 1280, margin: '0 auto', padding: '88px 20px 96px' }}>
         <div>
-          <div className="eyebrow on-dark" style={{ marginBottom: 24 }}></div>
-          <h1 style={{
-            fontSize: 'clamp(48px, 6vw, 84px)',
-            color: 'white',
-            fontWeight: 700,
-            marginBottom: 20,
-          }}>
+          <h1 style={{ fontSize: 'clamp(42px, 6vw, 84px)', color: 'white', fontWeight: 700, marginBottom: 20 }}>
             Honor.<br />Service.<br />
             <span style={{ color: 'var(--gold-bright)', fontStyle: 'italic' }}>Leadership.</span>
           </h1>
           <hr className="gold-rule" style={{ width: 80, height: 2, background: 'var(--gold-bright)' }} />
-          <p style={{
-            fontSize: 19,
-            lineHeight: 1.55,
-            color: 'rgba(255,255,255,0.78)',
-            maxWidth: 520,
-            marginBottom: 36,
-          }}>
+          <p style={{ fontSize: 19, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 520, marginBottom: 36 }}>
             The Viking Chapter at John T. Hoggard High School recognizes students who exemplify scholarship, service, leadership, and character — and gives them the means to lead.
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
-              target="_blank" rel="noopener noreferrer"
-              className="btn btn-gold">
+              target="_blank" rel="noopener noreferrer" className="btn btn-gold">
               Sign Up to Serve →
             </a>
             <button onClick={() => onNavigate('Membership')} className="btn btn-outline-light">
@@ -95,42 +48,14 @@ const Home = ({ onNavigate, sections }) => (
           </div>
         </div>
 
-        {/* Hero photo placeholder */}
+        {/* Hero photo — hidden on mobile via inline responsive handling */}
         <div style={{ position: 'relative', height: 480 }}>
-          <div className="placeholder dark" style={{
-            position: 'absolute',
-            inset: 0,
-            border: '1px solid rgba(255,255,255,0.15)',
-          }}>
+          <div className="placeholder dark" style={{ position: 'absolute', inset: 0, border: '1px solid rgba(255,255,255,0.15)' }}>
             [ chapter photograph<br />induction ceremony ]
           </div>
-          <div style={{
-            position: 'absolute',
-            top: -12,
-            left: -12,
-            width: 80,
-            height: 80,
-            borderTop: '3px solid var(--gold-bright)',
-            borderLeft: '3px solid var(--gold-bright)',
-          }} />
-          <div style={{
-            position: 'absolute',
-            bottom: -12,
-            right: -12,
-            width: 80,
-            height: 80,
-            borderBottom: '3px solid var(--gold-bright)',
-            borderRight: '3px solid var(--gold-bright)',
-          }} />
-          <div style={{
-            position: 'absolute',
-            bottom: 24,
-            left: 24,
-            background: 'rgba(255,255,255,0.96)',
-            color: 'var(--navy-ink)',
-            padding: '14px 18px',
-            maxWidth: 220,
-          }}>
+          <div style={{ position: 'absolute', top: -12, left: -12, width: 80, height: 80, borderTop: '3px solid var(--gold-bright)', borderLeft: '3px solid var(--gold-bright)' }} />
+          <div style={{ position: 'absolute', bottom: -12, right: -12, width: 80, height: 80, borderBottom: '3px solid var(--gold-bright)', borderRight: '3px solid var(--gold-bright)' }} />
+          <div style={{ position: 'absolute', bottom: 24, left: 24, background: 'rgba(255,255,255,0.96)', color: 'var(--navy-ink)', padding: '14px 18px', maxWidth: 220 }}>
             <div className="eyebrow" style={{ fontSize: 9, marginBottom: 4 }}>The Class of 2026</div>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, lineHeight: 1.3 }}>
               118 inducted members serving Wilmington this year.
@@ -142,20 +67,14 @@ const Home = ({ onNavigate, sections }) => (
 
     {/* PILLARS */}
     {sections.pillars && (
-      <section style={{ padding: '88px 32px', background: 'var(--paper)' }}>
+      <section className="pad-xl" style={{ background: 'var(--paper)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 64 }}>
             <div className="eyebrow">The Four Pillars</div>
-            <h2 style={{ fontSize: 44, marginTop: 12 }}>What we stand for</h2>
+            <h2 style={{ fontSize: 'clamp(32px, 4vw, 44px)', marginTop: 12 }}>What we stand for</h2>
             <hr className="gold-rule center" />
           </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 1,
-            background: 'var(--rule)',
-            border: '1px solid var(--rule)',
-          }}>
+          <div className="grid-pillars">
             {[
               { word: 'Scholarship', num: 'I.', body: 'Demonstrated through an unweighted GPA of 3.6 or higher and consistent academic excellence.' },
               { word: 'Service', num: 'II.', body: 'A minimum of 20 volunteer hours each year, devoted to the school and the Wilmington community.' },
@@ -163,13 +82,7 @@ const Home = ({ onNavigate, sections }) => (
               { word: 'Character', num: 'IV.', body: 'Integrity, responsibility, and respect — held to the highest expectations on campus and beyond.' },
             ].map((p) => (
               <div key={p.word} style={{ background: 'var(--paper)', padding: '40px 28px' }}>
-                <div style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: 20,
-                  color: 'var(--gold)',
-                  fontStyle: 'italic',
-                  marginBottom: 18,
-                }}>{p.num}</div>
+                <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'var(--gold)', fontStyle: 'italic', marginBottom: 18 }}>{p.num}</div>
                 <h3 style={{ fontSize: 26, marginBottom: 14 }}>{p.word}</h3>
                 <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.6 }}>{p.body}</p>
               </div>
@@ -181,22 +94,10 @@ const Home = ({ onNavigate, sections }) => (
 
     {/* QUOTE / MISSION */}
     {sections.mission && (
-      <section style={{
-        padding: '88px 32px',
-        background: 'var(--parchment)',
-        borderTop: '1px solid var(--rule)',
-        borderBottom: '1px solid var(--rule)',
-      }}>
+      <section className="pad-xl" style={{ background: 'var(--parchment)', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
         <div style={{ maxWidth: 880, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 56, color: 'var(--gold)', lineHeight: 0.6, marginBottom: 12 }}>"</div>
-          <p style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: 19,
-            lineHeight: 1.4,
-            color: 'var(--navy-ink)',
-            fontStyle: 'italic',
-            marginBottom: 28,
-          }}>
+          <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 19, lineHeight: 1.4, color: 'var(--navy-ink)', fontStyle: 'italic', marginBottom: 28 }}>
             The purpose of this organization shall be to create enthusiasm for scholarship, to stimulate a desire to render service, to promote leadership, and to develop character in the students of secondary schools.
           </p>
           <hr className="gold-rule center" />
@@ -207,34 +108,25 @@ const Home = ({ onNavigate, sections }) => (
 
     {/* QUICK LINKS */}
     {sections.quickLinks && (
-      <section style={{ padding: '88px 32px', background: 'var(--paper)' }}>
+      <section className="pad-xl" style={{ background: 'var(--paper)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48 }}>
+          <div className="section-header-row">
             <div>
               <div className="eyebrow">Member Resources</div>
-              <h2 style={{ fontSize: 38, marginTop: 12 }}>Get involved this semester</h2>
+              <h2 style={{ fontSize: 'clamp(28px, 3vw, 38px)', marginTop: 12 }}>Get involved this semester</h2>
             </div>
             <button className="btn btn-outline" onClick={() => onNavigate('Volunteer')}>All Resources →</button>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-            <QuickCard
-              kicker="Service Hours"
-              title="Sign up for chapter events"
+          <div className="grid-quick-links">
+            <QuickCard kicker="Service Hours" title="Sign up for chapter events"
               body="Browse upcoming chapter-sponsored service opportunities and reserve your spot."
-              cta="Open SignUpGenius"
-              href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/" />
-            <QuickCard
-              kicker="Validation"
-              title="Submit completed hours"
+              cta="Open SignUpGenius" href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/" />
+            <QuickCard kicker="Validation" title="Submit completed hours"
               body="Use the electronic validation form within 48 hours of finishing an event. Photo evidence required."
-              cta="Volunteer Page"
-              onClick={() => onNavigate('Volunteer')} />
-            <QuickCard
-              kicker="Maintaining Membership"
-              title="Read the requirements"
+              cta="Volunteer Page" onClick={() => onNavigate('Volunteer')} />
+            <QuickCard kicker="Maintaining Membership" title="Read the requirements"
               body="GPA, attendance, hours, and Honor Code expectations for every active member."
-              cta="Membership Page"
-              onClick={() => onNavigate('Membership')} />
+              cta="Membership Page" onClick={() => onNavigate('Membership')} />
           </div>
         </div>
       </section>
@@ -242,11 +134,11 @@ const Home = ({ onNavigate, sections }) => (
 
     {/* GALLERY STRIP */}
     {sections.gallery && (
-      <section style={{ padding: '64px 32px 0', background: 'var(--paper)' }}>
+      <section className="pad-xl-0" style={{ background: 'var(--paper)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <div className="eyebrow">In the Community</div>
-            <h2 style={{ fontSize: 38, marginTop: 12 }}>This year, in pictures</h2>
+            <h2 style={{ fontSize: 'clamp(28px, 3vw, 38px)', marginTop: 12 }}>This year, in pictures</h2>
             <hr className="gold-rule center" />
           </div>
           <Gallery />
@@ -255,25 +147,11 @@ const Home = ({ onNavigate, sections }) => (
     )}
 
     {/* CTA BANNER */}
-    <section style={{
-      background: 'var(--navy)',
-      color: 'white',
-      padding: '64px 32px',
-      marginTop: 80,
-      backgroundColor: 'rgb(14, 26, 54)',
-    }}>
-      <div style={{
-        maxWidth: 1280,
-        margin: '0 auto',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 32,
-        flexWrap: 'wrap',
-      }}>
+    <section className="pad-cta" style={{ background: 'rgb(14, 26, 54)', color: 'white', marginTop: 80 }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <div>
           <div className="eyebrow on-dark">Service Opportunities Open Now</div>
-          <h2 style={{ color: 'white', fontSize: 36, marginTop: 10 }}>
+          <h2 style={{ color: 'white', fontSize: 'clamp(24px, 3vw, 36px)', marginTop: 10 }}>
             Reserve your hours for the semester.
           </h2>
         </div>
