@@ -52,7 +52,7 @@ const About = () => (
     <section className="pad-lg" style={{ background: 'var(--parchment)', borderTop: '1px solid var(--rule)', borderBottom: '1px solid var(--rule)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <div className="eyebrow">2025–2026 Officers</div>
+          <div className="eyebrow">2026–2027 Officers</div>
           <h2 style={{ fontSize: 'clamp(28px, 3vw, 36px)', marginTop: 12 }}>Chapter leadership</h2>
           <hr className="gold-rule center" />
         </div>

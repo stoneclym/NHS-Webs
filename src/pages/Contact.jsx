@@ -24,7 +24,7 @@ const Contact = () => {
   return (
     <main>
       <PageHero eyebrow="Contact" title="Reach the chapter."
-        lede="Questions about membership, hours, partnerships, or volunteer opportunities? Email the chapter directly — your message will be read by the officer team the same day." />
+        lede="Questions about membership, hours, partnerships, or volunteer opportunities? Email the chapter directly — your message will be read by the officer team within 48 hours." />
 
       <section className="pad-contact">
         <div className="grid-contact" style={{ maxWidth: 1100, margin: '0 auto' }}>

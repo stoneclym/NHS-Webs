@@ -146,7 +146,7 @@ const Membership = () => {
 
           <section className="pad-lg-r">
             <div className="grid-sidebar" style={{ maxWidth: 1100, margin: '0 auto' }}>
-              <div style={{ position: 'sticky', top: 100, alignSelf: 'start' }}>
+              <div className="sidebar-sticky">
                 <div className="eyebrow">Six Standards</div>
                 <h2 style={{ fontSize: 28, marginTop: 12, marginBottom: 16 }}>Requirements for maintaining membership</h2>
                 <hr className="gold-rule" />
@@ -168,11 +168,15 @@ const Membership = () => {
                         <span style={{ flex: 1, fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'var(--navy-ink)', lineHeight: 1.3 }}>{r.title}</span>
                         <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 18, color: 'var(--navy)', transform: isOpen ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>+</span>
                       </button>
-                      {isOpen && (
+                      <div style={{
+                        maxHeight: isOpen ? '400px' : '0',
+                        overflow: 'hidden',
+                        transition: 'max-height 0.35s ease',
+                      }}>
                         <div style={{ paddingLeft: 56, paddingBottom: 24, paddingRight: 20 }}>
                           <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.7 }}>{r.body}</p>
                         </div>
-                      )}
+                      </div>
                     </div>
                   );
                 })}

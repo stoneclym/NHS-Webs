@@ -205,6 +205,12 @@ a { color: var(--navy); }
   gap: 64px;
 }
 
+.sidebar-sticky {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
 .grid-stages {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -342,6 +348,7 @@ a { color: var(--navy); }
   .grid-pillar-detail > *:nth-child(3) { grid-area: body; }
 
   .grid-sidebar      { grid-template-columns: 1fr; gap: 32px; }
+  .sidebar-sticky    { position: static !important; }
   .grid-stages       { grid-template-columns: 1fr; gap: 12px; }
   .grid-eligibility  { grid-template-columns: 1fr; }
   .grid-stat-strip   { grid-template-columns: repeat(2, 1fr); gap: 24px; }

@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import Crest from './Crest';
+import NHSLogo from './NHSLogo';
 
-export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
+export const Nav = ({ active, onNavigate }) => {
   const tabs = ['Home', 'About', 'Membership', 'Volunteer', 'Meetings', 'Contact'];
-  const padY = density === 'compact' ? 14 : 22;
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleNav = (t) => {
@@ -22,7 +21,7 @@ export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
       <div style={{
         maxWidth: 1280,
         margin: '0 auto',
-        padding: `${padY}px 20px`,
+        padding: '22px 20px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -31,7 +30,7 @@ export const Nav = ({ active, onNavigate, density = 'comfortable' }) => {
         {/* Logo */}
         <a href="#" onClick={(e) => { e.preventDefault(); handleNav('Home'); }}
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'var(--navy-ink)', flexShrink: 0 }}>
-          <Crest size={38} color="var(--navy)" accent="var(--gold)" />
+          <NHSLogo size={38} color="var(--navy)" accent="var(--gold)" />
           <div>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 17, fontWeight: 700, lineHeight: 1, letterSpacing: '-0.01em' }}>Viking Chapter</div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 9, fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', marginTop: 3 }}>National Honor Society</div>
@@ -184,7 +183,7 @@ export const Footer = ({ onNavigate }) => (
       <div className="grid-footer">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
-            <Crest size={44} color="white" accent="var(--gold-bright)" />
+            <NHSLogo size={44} color="white" accent="var(--gold-bright)" />
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'white', fontWeight: 700 }}>
                 Viking Chapter
@@ -221,7 +220,7 @@ export const Footer = ({ onNavigate }) => (
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 Hoggard NHS · Viking Chapter · John T. Hoggard High School, Wilmington NC · Est. 1921</span>
+        <span>© 2026 Hoggard NHS · Viking Chapter · John T. Hoggard High School, Wilmington NC</span>
         <span>Scholarship · Service · Leadership · Character</span>
       </div>
     </div>
