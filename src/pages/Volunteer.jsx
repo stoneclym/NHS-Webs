@@ -56,20 +56,36 @@ const Volunteer = () => {
       <PageHero eyebrow="Volunteer & Service" title="Earn your hours."
         lede="Members must complete a minimum of 20 service hours per year. Hours can be earned through chapter-sponsored events, approved unsponsored events, and your own Individual Service Project." />
 
-      {/* Big CTA card */}
+      {/* Dual CTA cards */}
       <section className="pad-md">
-        <div className="grid-cta" style={{ maxWidth: 1100, margin: '0 auto', background: 'rgb(14, 26, 54)', color: 'white', padding: '40px 32px' }}>
-          <div>
-            <div className="eyebrow on-dark">Now Open</div>
-            <h2 style={{ color: 'white', fontSize: 'clamp(22px, 2.5vw, 32px)', marginTop: 8 }}>Chapter-Sponsored Events</h2>
-            <p style={{ color: 'rgba(255,255,255,0.78)', marginTop: 8, fontSize: 15 }}>
-              Browse and reserve your spot for upcoming chapter events. Sponsored hours are pre-approved.
-            </p>
+        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div style={{ background: 'rgb(14, 26, 54)', color: 'white', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div className="eyebrow on-dark">Now Open</div>
+              <h2 style={{ color: 'white', fontSize: 'clamp(20px, 2vw, 28px)', marginTop: 8 }}>Chapter-Sponsored Events</h2>
+              <p style={{ color: 'rgba(255,255,255,0.78)', marginTop: 8, fontSize: 15 }}>
+                Browse and reserve your spot for upcoming chapter events. Sponsored hours are pre-approved.
+              </p>
+            </div>
+            <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
+              target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ padding: '14px 24px', alignSelf: 'flex-start' }}>
+              Open SignUpGenius →
+            </a>
           </div>
-          <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
-            target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ padding: '16px 32px' }}>
-            Open SignUpGenius →
-          </a>
+
+          <div style={{ background: 'var(--parchment)', border: '1px solid var(--rule)', borderTop: '3px solid var(--gold)', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div className="eyebrow">After Every Event</div>
+              <h2 style={{ color: 'var(--navy-ink)', fontSize: 'clamp(20px, 2vw, 28px)', marginTop: 8 }}>Submit Your Hours</h2>
+              <p style={{ color: 'var(--muted)', marginTop: 8, fontSize: 15 }}>
+                Submit the electronic validation form within 48 hours of completing any service event. Photo evidence required — no exceptions.
+              </p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSefh5iEXfOMzuLLUAtlXQNIAgr6fRRTHN10nE8XH--9eA9v7w/viewform"
+              target="_blank" rel="noopener noreferrer" className="btn btn-navy" style={{ padding: '14px 24px', alignSelf: 'flex-start' }}>
+              Open Validation Form →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -134,6 +150,7 @@ const Volunteer = () => {
                 { kicker: 'Required', title: 'Electronic Validation Form', meta: 'One submission per event — no exceptions' },
                 { kicker: 'Required', title: 'Photo Evidence', meta: 'A clear photo of you at the event' },
                 { kicker: 'Recommended', title: 'Digital Backup', meta: 'Take a screenshot of every form submission' },
+                { kicker: 'Note', title: 'No Double-Dipping', meta: 'Hours used for NHS cannot be counted toward another club, organization, or honor society' },
               ]}
               warning="If a form is lost and you do not have a digital record, your service hours will not be accepted. It is your responsibility to keep records."
               cta={{ href: 'https://docs.google.com/forms/d/e/1FAIpQLSefh5iEXfOMzuLLUAtlXQNIAgr6fRRTHN10nE8XH--9eA9v7w/viewform', label: 'Open Validation Form ↗' }} />
@@ -141,14 +158,23 @@ const Volunteer = () => {
         </div>
       </section>
 
-      {/* Hour reminder */}
+      {/* Hour due dates */}
       <section className="pad-sm-top">
-        <div style={{ maxWidth: 1100, margin: '0 auto', background: 'var(--parchment)', border: '1px solid var(--rule)', padding: '32px 28px' }}>
-          <div className="eyebrow">A Reminder</div>
-          <h3 style={{ fontSize: 22, marginTop: 8, marginBottom: 14 }}>No double-dipping.</h3>
-          <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.65, maxWidth: 760 }}>
-            Service hours earned for NHS may not be shared with another club, organization, or honor society. Hours used to fulfill another group's requirement cannot be counted toward your 20-hour annual NHS minimum.
-          </p>
+        <div style={{ maxWidth: 1100, margin: '0 auto', background: 'var(--navy-ink)', color: 'white', padding: '32px 28px' }}>
+          <div className="eyebrow on-dark">Hour Deadlines</div>
+          <h3 style={{ fontSize: 22, marginTop: 8, marginBottom: 20, color: 'white' }}>End-of-year due dates.</h3>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div style={{ background: 'rgba(255,255,255,0.08)', borderTop: '2px solid var(--gold-bright)', padding: '20px 24px' }}>
+              <div className="eyebrow on-dark">Seniors</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: 'white', marginTop: 8, lineHeight: 1 }}>May 1</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', marginTop: 8 }}>All hours and validation forms must be submitted by May 1.</div>
+            </div>
+            <div style={{ background: 'rgba(255,255,255,0.08)', borderTop: '2px solid var(--gold-bright)', padding: '20px 24px' }}>
+              <div className="eyebrow on-dark">Juniors</div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 32, color: 'white', marginTop: 8, lineHeight: 1 }}>May 25</div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', marginTop: 8 }}>All hours and validation forms must be submitted by May 25.</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

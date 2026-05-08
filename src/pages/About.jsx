@@ -40,8 +40,8 @@ const About = () => (
             Members commit to a higher standard. They tutor younger students, raise funds for community partners, organize cleanups, and lead service projects of their own design. Membership is not an honor accepted lightly — it is a year-long commitment to the chapter and to the community.
           </p>
           <div className="grid-3col">
-            <Stat n="118" label="Active members" />
-            <Stat n="3,400+" label="Service hours / yr" />
+            <Stat n="284" label="Active members" />
+            <Stat n="5,500+" label="Service hours / yr" />
             <Stat n="20+" label="Partner organizations" />
           </div>
         </div>

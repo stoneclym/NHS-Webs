@@ -48,7 +48,7 @@ const Contact = () => {
 
             <ContactRow label="School" value="John T. Hoggard High School" link="https://hoggard.nhcs.net" />
             <ContactRow label="Address" value={'4305 Shipyard Boulevard\nWilmington, NC 28403'} />
-            <ContactRow label="Updates" value="Check email for meeting dates" />
+
 
             <div style={{ marginTop: 28, padding: '24px 20px', background: 'var(--parchment)', border: '1px solid var(--rule)' }}>
               <div className="eyebrow">For Community Partners</div>

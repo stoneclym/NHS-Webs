@@ -302,6 +302,7 @@ a { color: var(--navy); }
   gap: 0;
   border-bottom: 1px solid var(--rule);
   overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }

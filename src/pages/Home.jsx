@@ -58,7 +58,7 @@ const Home = ({ onNavigate, sections }) => (
           <div style={{ position: 'absolute', bottom: 24, left: 24, background: 'rgba(255,255,255,0.96)', color: 'var(--navy-ink)', padding: '14px 18px', maxWidth: 220 }}>
             <div className="eyebrow" style={{ fontSize: 9, marginBottom: 4 }}>The Class of 2026</div>
             <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 14, lineHeight: 1.3 }}>
-              118 inducted members serving Wilmington this year.
+              126 inducted members serving Wilmington this year.
             </div>
           </div>
         </div>
