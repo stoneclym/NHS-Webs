@@ -7,9 +7,13 @@ const Stat = ({ n, label }) => (
   </div>
 );
 
-const OfficerCard = ({ role, name }) => (
+const OfficerCard = ({ role, name, url }) => (
   <div style={{ background: 'var(--paper)', border: '1px solid var(--rule)' }}>
-    <div className="placeholder" style={{ height: 220 }}>[ headshot ]</div>
+    <div style={{ aspectRatio: '4/3', overflow: 'hidden', background: 'var(--parchment)' }}>
+      <img src={url} alt={name}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        onError={(e) => { e.target.style.display = 'none'; }} />
+    </div>
     <div style={{ padding: '20px 18px', textAlign: 'center' }}>
       <div className="eyebrow">{role}</div>
       <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, marginTop: 6, color: 'var(--navy-ink)' }}>{name}</div>
@@ -61,12 +65,12 @@ const About = () => (
         </div>
         <div className="grid-officers">
           {[
-            { role: 'President', name: 'Lillie Nichols' },
-            { role: 'Vice President', name: 'Vivian Skiba' },
-            { role: 'Treasurer', name: 'Lawson Kievit' },
-            { role: 'Induction Coordinator', name: 'Jaylin Wilson' },
-            { role: 'Service Hours Coordinator', name: 'Camille Walker' },
-            { role: 'Communications Team', name: 'Greyson Clymer & Hutton Badrock' },
+            { role: 'President', name: 'Lillie Nichols', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539451/lillie_1_lw21m1.jpg' },
+            { role: 'Vice President', name: 'Vivian Skiba', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539864/Screenshot_2026-05-11_at_6.50.58_PM_tmn1k0.png' },
+            { role: 'Treasurer', name: 'Lawson Kievit', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539454/lawson_1_gd7aah.png' },
+            { role: 'Induction Coordinator', name: 'Jaylin Wilson', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539814/Screenshot_2026-05-11_at_6.50.07_PM_n1gfzj.png' },
+            { role: 'Service Hours Coordinator', name: 'Camille Walker', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539457/camille_1_dllujh.png' },
+            { role: 'Communications Team', name: 'Greyson Clymer & Hutton Badrock', url: 'https://res.cloudinary.com/dbc9mudek/image/upload/v1778539457/greysonhutton_ic26ay.jpg' },
           ].map((o) => <OfficerCard key={o.role} {...o} />)}
         </div>
         <div style={{ textAlign: 'center', marginTop: 32, fontFamily: "'Inter', sans-serif", fontSize: 12, color: 'var(--muted)', letterSpacing: '0.08em' }}>

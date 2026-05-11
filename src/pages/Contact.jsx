@@ -41,9 +41,17 @@ const Contact = () => {
             </div>
 
             <div style={{ padding: '20px 0', borderBottom: '1px solid var(--rule)' }}>
-              <div className="eyebrow" style={{ fontSize: 10, marginBottom: 6 }}>Faculty Adviser</div>
-              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 22, color: 'var(--navy-ink)', marginBottom: 4 }}>Hunter Moody</div>
-              <a href="mailto:hunter.moody@nhcs.net" style={{ fontFamily: "'Source Serif Pro', serif", fontSize: 15, color: 'var(--navy)' }}>hunter.moody@nhcs.net</a>
+              <div className="eyebrow" style={{ fontSize: 10, marginBottom: 10 }}>Faculty Adviser</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <img src="https://res.cloudinary.com/dbc9mudek/image/upload/v1778535177/1441_kkfpxa.webp"
+                  alt="Hunter Moody"
+                  style={{ width: 64, height: 64, objectFit: 'cover', flexShrink: 0, borderRadius: 2 }}
+                  onError={(e) => { e.target.style.display = 'none'; }} />
+                <div>
+                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 20, color: 'var(--navy-ink)', marginBottom: 4 }}>Hunter Moody</div>
+                  <a href="mailto:hunter.moody@nhcs.net" style={{ fontFamily: "'Source Serif Pro', serif", fontSize: 14, color: 'var(--navy)' }}>hunter.moody@nhcs.net</a>
+                </div>
+              </div>
             </div>
 
             <ContactRow label="School" value="John T. Hoggard High School" link="https://hoggard.nhcs.net" />
