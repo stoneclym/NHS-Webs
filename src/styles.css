@@ -236,6 +236,12 @@ a { color: var(--navy); }
   align-items: center;
 }
 
+.grid-volunteer-cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
 .grid-tabblock {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
@@ -354,6 +360,7 @@ a { color: var(--navy); }
   .grid-eligibility  { grid-template-columns: 1fr; }
   .grid-stat-strip   { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .grid-cta          { grid-template-columns: 1fr; }
+  .grid-volunteer-cta { grid-template-columns: 1fr; }
   .grid-tabblock     { grid-template-columns: 1fr; gap: 40px; }
   .grid-meetings     { grid-template-columns: 1fr; }
   .grid-contact      { grid-template-columns: 1fr; gap: 40px; }

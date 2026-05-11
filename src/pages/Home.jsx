@@ -50,9 +50,9 @@ const Home = ({ onNavigate, sections }) => (
 
         {/* Hero photo — hidden on mobile via inline responsive handling */}
         <div style={{ position: 'relative', height: 480 }}>
-          <div className="placeholder dark" style={{ position: 'absolute', inset: 0, border: '1px solid rgba(255,255,255,0.15)' }}>
-            [ chapter photograph<br />induction ceremony ]
-          </div>
+          <img src="https://res.cloudinary.com/dbc9mudek/image/upload/v1778534833/IMG_1237_mxz3sg.jpg"
+            alt="Induction ceremony"
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', top: -12, left: -12, width: 80, height: 80, borderTop: '3px solid var(--gold-bright)', borderLeft: '3px solid var(--gold-bright)' }} />
           <div style={{ position: 'absolute', bottom: -12, right: -12, width: 80, height: 80, borderBottom: '3px solid var(--gold-bright)', borderRight: '3px solid var(--gold-bright)' }} />
           <div style={{ position: 'absolute', bottom: 24, left: 24, background: 'rgba(255,255,255,0.96)', color: 'var(--navy-ink)', padding: '14px 18px', maxWidth: 220 }}>

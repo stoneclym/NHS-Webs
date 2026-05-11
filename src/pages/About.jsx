@@ -27,7 +27,9 @@ const About = () => (
     <section className="pad-lg" style={{ background: 'var(--paper)' }}>
       <div className="grid-about" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div>
-          <div className="placeholder" style={{ height: 420 }}>[ chapter history<br />group photo ]</div>
+          <img src="https://res.cloudinary.com/dbc9mudek/image/upload/v1778535200/IMG_1078_ymzrc0.jpg"
+            alt="Chapter officers"
+            style={{ width: '100%', height: 420, objectFit: 'cover', display: 'block' }} />
         </div>
         <div>
           <div className="eyebrow">Our Story</div>

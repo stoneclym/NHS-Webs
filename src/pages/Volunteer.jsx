@@ -58,7 +58,7 @@ const Volunteer = () => {
 
       {/* Dual CTA cards */}
       <section className="pad-md">
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div className="grid-volunteer-cta" style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ background: 'rgb(14, 26, 54)', color: 'white', padding: '40px 32px', display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div>
               <div className="eyebrow on-dark">Now Open</div>

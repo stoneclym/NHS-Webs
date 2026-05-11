@@ -38,7 +38,7 @@ const Membership = () => {
   return (
     <main>
       <PageHero eyebrow="Membership" title="Application & membership."
-        lede="Membership in the Viking Chapter is an honor — and a year-long commitment. Below are the steps to apply and the standards every active member is expected to meet." />
+        lede="Membership in the Viking Chapter is an honor and a year-long commitment. Below are the steps to apply and the standards every active member is expected to meet." />
 
       {/* View switcher */}
       <section style={{ padding: '40px 20px 0' }}>
