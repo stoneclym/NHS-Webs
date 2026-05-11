@@ -9,11 +9,9 @@ const Stat = ({ n, label }) => (
 
 const OfficerCard = ({ role, name, url }) => (
   <div style={{ background: 'var(--paper)', border: '1px solid var(--rule)' }}>
-    <div style={{ aspectRatio: '4/3', overflow: 'hidden', background: 'var(--parchment)' }}>
-      <img src={url} alt={name}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-        onError={(e) => { e.target.style.display = 'none'; }} />
-    </div>
+    <img src={url} alt={name}
+      style={{ width: '100%', height: 'auto', display: 'block' }}
+      onError={(e) => { e.target.style.display = 'none'; }} />
     <div style={{ padding: '20px 18px', textAlign: 'center' }}>
       <div className="eyebrow">{role}</div>
       <div style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, marginTop: 6, color: 'var(--navy-ink)' }}>{name}</div>
