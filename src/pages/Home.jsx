@@ -35,7 +35,7 @@ const Home = ({ onNavigate, sections }) => (
           </h1>
           <hr className="gold-rule" style={{ width: 80, height: 2, background: 'var(--gold-bright)' }} />
           <p style={{ fontSize: 19, lineHeight: 1.55, color: 'rgba(255,255,255,0.78)', maxWidth: 520, marginBottom: 36 }}>
-            The Viking Chapter at John T. Hoggard High School recognizes students who exemplify scholarship, service, leadership, and character — and gives them the means to lead.
+            The Viking Chapter at John T. Hoggard High School recognizes students who exemplify scholarship, service, leadership, and character, and gives them the means to lead.
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <a href="https://www.signupgenius.com/go/10C094BACAD2CA3F9CF8-50931733-nhsservice#/"
